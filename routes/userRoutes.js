@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
     res.json(users);
 });
 
-router.get('/api/users/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     const userExists = users.filter((user) => user.id === parseInt(req.params.id));
 
     if (userExists.length !== 0) {
