@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const uuid = require('uuid/v4');
-const users = require('./models/Users');
+// const users = require('./models/Users');
 // const { logMe } = require('./middleware/logger');
 // const { showMoment } = require('./middleware/moment');
 const port = process.env.PORT || '3000';
@@ -38,19 +37,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 // });
 
 // create user
-app.post('/', (req, res) => {
-    if(!req.body.name || !req.body.email) {
-        return res
-            .status(400)
-            .json({ message: 'Please enter both a name and an email' });
-    }
-    const newUser = {};
-    newUser.id = uuid();
-    newUser.name = req.body.name;
-    newUser.email = req.body.email;
-    users.push(newUser);
-    return res.json(req.body);
-});
+// app.post('/', (req, res) => {
+//     if(!req.body.name || !req.body.email) {
+//         return res
+//             .status(400)
+//             .json({ message: 'Please enter both a name and an email' });
+//     }
+//     const newUser = {};
+//     newUser.id = uuid();
+//     newUser.name = req.body.name;
+//     newUser.email = req.body.email;
+//     users.push(newUser);
+//     return res.json(req.body);
+// });
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
